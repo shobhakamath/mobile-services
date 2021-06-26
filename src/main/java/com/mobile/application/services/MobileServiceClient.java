@@ -2,6 +2,7 @@ package com.mobile.application.services;
 
 import com.mobile.application.configuration.MobileConfiguration;
 import com.mobile.application.dto.Brand;
+import com.mobile.application.exceptions.BadRequestException;
 import com.mobile.application.exceptions.MobileNotFoundException;
 import com.mobile.application.utils.MobileFilterUtility;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +13,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +29,9 @@ public class MobileServiceClient {
     public Mono<List<Brand>> getMobilesOnCriteria(Map<String, String> requestParameters) {
 
         LOGGER.info("Request parameter size" + requestParameters.size());
+        List<String> errorLst=new ArrayList<>();
+        errorLst.add("Empty request parameters not allowed");
+        if(requestParameters.size()==0) throw new BadRequestException(errorLst, "Validation Errors");
         Map<String, Boolean> reqParams = new HashMap<>();
         requestParameters.forEach((k, v) -> reqParams.put(k, false));
         RequestParamsValidationService.validateRequestParams(reqParams, Brand.class);
