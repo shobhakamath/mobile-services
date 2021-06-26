@@ -1,6 +1,6 @@
 package com.mobile.application.controller;
 
-import com.mobile.application.model.Brand;
+import com.mobile.application.dto.Brand;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,7 +15,7 @@ public class MobileController {
 
 
     /**
-     * Handles the create  Http request.
+     * Handles the search GET API request.
      *
      * @param allParams
      * @return REST API for searching mobiles
@@ -25,4 +25,6 @@ public class MobileController {
     public Brand[] searchMobiles(@RequestParam Map<String, String> allParams) {
         return new Brand[1];
     }
+
+
 }

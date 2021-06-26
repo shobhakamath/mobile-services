@@ -1,0 +1,68 @@
+openapi: 3.0.1
+info:
+  title: Mobile services
+  description: Mobile application for searching products
+  version: "1.0"
+servers:
+- url: http://localhost:8080/
+  description: Generated server url
+paths:
+  /search:
+    get:
+      tags:
+      - mobile-controller
+      operationId: searchMobiles
+      parameters:
+      - name: allParams
+        in: query
+        required: true
+        schema:
+          type: object
+          additionalProperties:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Brand'
+components:
+  schemas:
+    Brand:
+      type: object
+      properties:
+        id:
+          type: string
+        brand:
+          type: string
+        phone:
+          type: string
+        picture:
+          type: string
+        release:
+          $ref: '#/components/schemas/Release'
+        sim:
+          type: string
+        resolution:
+          type: string
+        hardware:
+          $ref: '#/components/schemas/Hardware'
+    Hardware:
+      type: object
+      properties:
+        audioJack:
+          type: string
+        gps:
+          type: string
+        battery:
+          type: string
+    Release:
+      type: object
+      properties:
+        announceDate:
+          type: string
+        priceEur:
+          type: string
