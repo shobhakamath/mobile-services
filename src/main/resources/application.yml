@@ -7,9 +7,3 @@ mobile:
 spring:
   application:
     name: MOBILE-SERVICES
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://myeureka-server.herokuapp.com/eureka

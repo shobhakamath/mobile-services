@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * The exception handler that maps exceptions to corresponding response status and message.
  *
@@ -56,6 +59,30 @@ public class ServiceExceptionHandler extends ResponseEntityExceptionHandler {
         return buildErrorResponse("Internal server error");
     }
 
+    /**
+     * Handle illegal argument exception.
+     *
+     * @param ex the exception
+     * @return the error response entity
+     */
+    @ExceptionHandler(BadRequestException.class)
+    @ResponseBody
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorResponse handleBadRequestException(BadRequestException ex) {
+        return buildErrorResponse(ex.getErrors().toArray(new String[ex.getErrors().size()]));
+    }
+
+    /**
+     * @param message
+     * @return
+     */
+    private static ErrorResponse buildErrorResponse(final String[] message) {
+
+        ErrorResponse errorResponse = new ErrorResponse();
+        errorResponse.setErrors(message);
+        errorResponse.setMessage("The request parameters are invalid");
+        return errorResponse;
+    }
 
     /**
      * Build error response.

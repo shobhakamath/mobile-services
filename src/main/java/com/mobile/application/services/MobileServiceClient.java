@@ -12,6 +12,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 import java.time.Duration;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,6 +27,10 @@ public class MobileServiceClient {
     public Mono<List<Brand>> getMobilesOnCriteria(Map<String, String> requestParameters) {
 
         LOGGER.info("Request parameter size" + requestParameters.size());
+        Map<String, Boolean> reqParams = new HashMap<>();
+        requestParameters.forEach((k, v) -> reqParams.put(k, false));
+        RequestParamsValidationService.validateRequestParams(reqParams, Brand.class);
+
         try {
             return getMobileBrands()
                     .flatMap(brands -> Mono.just(MobileFilterUtility
