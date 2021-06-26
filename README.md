@@ -23,3 +23,6 @@ Jacoco reports
 
 # Eureka server registration
 http://myeureka-server.herokuapp.com/
+
+Config server integration was not done due to limitations on Herouenvironments.
+Docs added on architecture details
