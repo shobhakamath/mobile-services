@@ -34,16 +34,24 @@ http://myeureka-server.herokuapp.com/
 
 # Steps to build the Docker Image:
 Step 1: Enter the project directory,
+
 cd <project_directory>
+
 Step 2: To clean and package the micro-service locally
+
 mvn clean package
-Step 3: Build the docker image and store it in a local repository (Dockerfile is there in the root of the directory itself)
+
+Step 3: Build the docker image and store it in a local repository 
+
 docker build . --tag mobile-services
+
 Step 4: Run the micro-service as a container in the docker:
+
 docker run -it -p 8080:8080 mobile-services:latest
 
 
 # Other details
 
 Config server integration was not done due to limitations on Heroku environments.
+
 Docs added on architecture details
