@@ -1,18 +1,29 @@
 # mobile-services
+
 Application url : https://servicesmobile.herokuapp.com
+
 Search api : https://servicesmobile.herokuapp.com/search
 
 
 # Tech stack used:
 Java 11
+
 Spring Boot 2.5.1
+
 Spring REST API (Spring Web)
+
 Lombok 1.18.20
+
 springdoc-openapi-ui -  OpenAPI 3.0 
+
 Dockerized (Dockerfile is included and used the latest concept called multi-layered image building for optimized build time)
+
 TDD approach using JUnit 5, Mockito, and Spring Boot Test
+
 JaCoCo for code coverage
+
 webclient for http calls
+
 
 # OpenAPI definition using springdoc-openapi-ui
 
@@ -54,4 +65,23 @@ docker run -it -p 8080:8080 mobile-services:latest
 
 Config server integration was not done due to limitations on Heroku environments.
 
-Docs added on architecture details
+
+https://github.com/shobhakamath/mobile-services
+
+A sample request to test the application deployed in Heroku is given 
+
+https://servicesmobile.herokuapp.com/search?sim=esim
+
+The application can be tested using the Swagger UI : 
+
+https://servicesmobile.herokuapp.com/swagger-ui/index.html?configUrl=/mobile-services-doc/swagger-config
+
+The deployment CICD pipeline is done using Github actions:
+
+https://github.com/shobhakamath/mobile-services/actions
+
+The documentation for the assignment can be found in the README file and the docs folder.
+
+https://github.com/shobhakamath/mobile-services/tree/main/docs
+
+
