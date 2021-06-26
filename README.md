@@ -6,6 +6,7 @@ Search api : https://servicesmobile.herokuapp.com/search
 # Technologies used
 Java 11
 Springboot : 2.5.x
+webclient for http calls
 
 # OpenAPI definition using springdoc-openapi-ui
 
@@ -17,3 +18,5 @@ Deploy to Heroku
 
 # Code Coverage
 Jacoco reports
+# Logging
+ logback.xml
