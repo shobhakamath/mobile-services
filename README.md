@@ -1,4 +1,19 @@
 # mobile-services
+Application url : https://servicesmobile.herokuapp.com
+Search api : https://servicesmobile.herokuapp.com/search
 
-#OpenAPI definition using springdoc-openapi-ui
-/swagger-ui/index.html
+
+# Technologies used
+Java 11
+Springboot : 2.5.x
+
+# OpenAPI definition using springdoc-openapi-ui
+
+https://servicesmobile.herokuapp.com/swagger-ui/index.html
+
+# CICD pipeline
+Using github actions 
+Deploy to Heroku 
+
+# Code Coverage
+Jacoco reports
