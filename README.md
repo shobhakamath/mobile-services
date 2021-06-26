@@ -20,3 +20,6 @@ Deploy to Heroku
 Jacoco reports
 # Logging
  logback.xml
+
+# Eureka server registration
+http://myeureka-server.herokuapp.com/
